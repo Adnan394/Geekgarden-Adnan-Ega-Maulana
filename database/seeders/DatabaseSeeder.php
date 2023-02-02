@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
             'lastName' => 'ega maulana',
         ]);
 
+        Post::factory(15)->create();
     }
 }
