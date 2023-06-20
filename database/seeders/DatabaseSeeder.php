@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Post;
+use App\Models\role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -29,8 +30,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adnan394'),
             'firstName' => 'adnan',
             'lastName' => 'ega maulana',
+            'role_id' => 1,
         ]);
 
-        Post::factory(15)->create();
+        role::create([
+            'role' => 'admin',
+        ]);
+        role::create([
+            'role' => 'user',
+        ]);
     }
 }

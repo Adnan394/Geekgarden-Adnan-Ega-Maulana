@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('post_id');
+        Schema::create('keranjangs', function (Blueprint $table) {
+            $table->uuid('id');
             $table->unsignedBigInteger('user_id');
-            $table->text('coment_text');
-            $table->timestamps();
-
-            $table->foreign('post_id')->references('id')->on('posts');
             $table->foreign('user_id')->references('id')->on('users');
-
+            $table->unsignedBigInteger('produk_id');
+            $table->foreign('produk_id')->references('id')->on('produks')->onUpdate('cascade');
+            $table->integer('jumlah');
+            $table->integer('harga');
+            $table->string('metode_pembayaran');
+            $table->timestamps();
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('keranjangs');
     }
 };

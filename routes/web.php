@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
+// Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
